@@ -1,0 +1,98 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !Mode:: "TeX:UTF-8"
+
+\documentclass{resume}
+\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
+% \usepackage{NotoSansSC_external}
+% \usepackage{NotoSerifCJKsc_external}
+% \usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
+\usepackage{linespacing_fix} % disable extra space before next section
+\usepackage{cite}
+
+\begin{document}
+\pagenumbering{gobble} % suppress displaying page number
+
+\name{邬文轩}
+
+\basicInfo{
+  \email{wwx0306@foxmail.com} \textperiodcentered\ 
+  \phone{(+86) 191-159-46187} \textperiodcentered\ 
+  \linkedin[Wenxuan Wu]{https://www.linkedin.com/in/文轩-邬-5704b88b}}
+ 
+\section{\faUsers\ 工作经历}
+\datedsubsection{\textbf{中科创达有限公司}, 成都}{2021年11月 -- 2022年7月}
+\role{驱动开发工程师}{gdb  c  git  dpdk}
+\begin{onehalfspacing}
+Nic Enabling：Feature 开发、Bug Fix
+\begin{itemize}
+  \item PMD ice driver 开发
+  \item 实现了 Header Split feature 开发
+  \item Bug 定位、复现、方案修复(十二个bug)
+  \item Root Cause分析、修复、方案讨论
+  \item Patchwork
+\end{itemize} 
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{ baicells 技术有限公司}, 成都}{2019年8月 -- 2021年11月}
+\role{Linux 终端开发工程师} {C  shell gdb vscode kernel code}
+\begin{onehalfspacing}
+网卡驱动(NW) command line, https://github.com/wuwenxux/nw
+\begin{itemize}
+  \item NW client cmdline解析器
+  \item NW 配置文件读取、加载、重载、删除
+  \item NW 配置信息显示
+  \item 输入校验、异常处理、日志记录
+  \item configuration file support
+  \item support with openwrt config type、
+  \item 客户反馈故障，bug分析
+  \item Bug fix, 重构
+  \item code design (app lib kernel) 
+\end{itemize}
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{{内蒙古电网-鄂尔多斯电业局}}, 成都}{2013 年7月 -- 2018年9月}
+\role{信息网络运维工程师}{网络规划、配置、策略部署、网络异常分析}
+\begin{onehalfspacing}
+信息网络运维工程师
+\begin{itemize}
+  \item 电网相关信息系统维护，OA, 财务，工作票，ERP
+  \item 电网相关通信设备维护（交换机、路由器、以及一些早期通信设备，以及用于变电站专用的通信设备）
+  \item 通信网络运维、网络规划、防火墙策略设置、组网策略设置、网络异常维护、设备巡检、性能监控、故障分析
+  \item 技术改造方案提出，改善
+  \item 评标专家，根据业务需求，参与项目评审
+\end{itemize}
+\end{onehalfspacing}
+
+% Reference Test
+%\datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
+%An xxx optimized for xxx\cite{verma2015large}
+%\begin{itemize}
+%  \item main contribution
+%\end{itemize}
+\section{\faGraduationCap\  教育背景}
+\datedsubsection{\textbf{四川大学}, 四川，成都}{2010 -- 2013}
+\textit{硕士研究生}\ 软件工程
+\datedsubsection{\textbf{四川大学}, 四川, 成都}{2006 -- 2010}
+\textit{学士}\ 软件工程
+
+\section{\faCogs\ IT 技能}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.5ex]
+  \item C Bash Linux ops Office Suite gdb vim vscode
+  \item 网络协议熟悉，接触的工作框架熟悉，体系结构熟悉，常用数据结构熟悉，计算机基础
+  \item Git 常用操作 
+\end{itemize}
+
+\section{\faInfo\ 其他}
+% increase linespacing [parsep=0.5ex]
+\begin{itemize}[parsep=0.5ex]
+  \item GitHub: https://github.com/wuwenxux
+  \item 英语  听说读写熟练(TOEFL 92) CET 6级
+\end{itemize}
+
+%% Reference
+%\newpage
+%\bibliographystyle{IEEETran}
+%\bibliography{mycite}
+\end{document}
