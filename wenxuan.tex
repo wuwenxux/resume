@@ -1,0 +1,78 @@
+% !TEX program = xelatex
+
+\documentclass{resume}
+%\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
+%\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
+
+\begin{document}
+\pagenumbering{gobble} % suppress displaying page number
+
+\name{Wenxuan Wu}
+
+\basicInfo{
+  \email{wwx0306@foxmail.com} \textperiodcentered\ 
+  \phone{(+86) 19115946187} \textperiodcentered\ 
+  \linkedin[Wenxuan Wu]{https://www.linkedin.com/in/wenxuan-wu-5704b88b}}
+
+\section{\faUsers\ Work Experience}
+\datedsubsection{\textbf{ThunderSoft Inc.} Chengdu, China}{Nov.2021 -- Present}
+\role{C, git, gdb, linux, shell, vscode}{Intel driver engineer}
+Intel high performance network card driver(ixgbe, igb, ice etc.) feature implementation and maintainence.
+\begin{itemize}
+	\item Implemented header split feature which is based on protocol (udp, l2, l3, inner/outer mac, sctp) regardless of tunnel.
+  \item Bug fix, root cause analysis, solution discussision, implementation, patch work. 
+  \item Code review, design discussion, solution discussion.
+  \item Support test team to change test case accordingly.
+\end{itemize}
+
+\datedsubsection{\textbf{Baicells Inc.} Chengdu, China}{Apr.2019 -- Nov.2021}
+\role{C, git, gdb, linux, shell, vscode}{Driver engineer}
+Multipath TCP which can take the full bandwidth of our CPE device  is introduced in our new released CPE device.
+\begin{itemize}
+	\item Implemented mptcp client config module, userspace app to read and write config to kernel module through ioctl(kernel and userspace interaction).
+\item Design discussion, bug fix, feature implementation. lib design related discussions. 
+\end{itemize}
+
+\datedsubsection{\textbf{State Grid.} Inner mongolia, China}{Jan. 2013 -- Oct.2018}
+\role{Network, shell, router switch related configuration, Linux}{Maintainer}
+Main responsibility, network maintainence of more than 200 related transformer substations.
+In charge of network maintainence, fiber and network devices, network planning, network problems analysis.
+\begin{itemize}
+\item Maintainer of network related devices(switches, router, firewall) etc.
+\item Network design and plan (ip route, config, plan).
+\item Network problem analysis.
+\item Netework Solution analysis.
+\end{itemize}
+
+
+% Reference Test
+%\datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
+%An xxx optimized for xxx\cite{verma2015large}
+%\begin{itemize}
+%  \item main contribution
+%\end{itemize}
+
+\section{\faGraduationCap\ Education}
+\datedsubsection{\textbf{Sichuan University}, Chengdu, China}{2010 -- 2013}
+\textit{M.S.} in Software Engineering 
+\datedsubsection{\textbf{Sichuan University}, Chengdu, China}{2006 -- 2010}
+\textit{B.S.} in Software Engineering 
+
+\section{\faCogs\ Skills}
+\begin{itemize}[parsep=0.5ex]
+  \item Programming Languages: C == shell > C++  > Python > Java
+  \item Platform: Linux
+  \item Development: driver, kernel, network stack.
+\end{itemize}
+
+\section{\faInfo\ Miscellaneous}
+\begin{itemize}[parsep=0.5ex]
+  \item GitHub: https://github.com/wuwenxux
+  \item Languages: English - Fluent, Mandarin - Native speaker
+\end{itemize}
+
+%% Reference
+%\newpage
+%\bibliographystyle{IEEETran}
+%\bibliography{mycite}
+\end{document}
