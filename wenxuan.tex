@@ -21,46 +21,64 @@
   \linkedin[Wenxuan Wu]{https://www.linkedin.com/in/文轩-邬-5704b88b}}
  
 \section{\faUsers\ 工作经历}
-\datedsubsection{\textbf{中科创达有限公司}, 成都}{2021年11月 -- 2022年7月}
-\role{驱动开发工程师}{gdb  c  git  dpdk}
+\datedsubsection{\textbf{成都海网技术有限公司}, 成都}{2022年11月 -- 至今}
+\role{dpdk 网络协议开发工程师}{gdb  c  git dpdk netstack}
 \begin{onehalfspacing}
-Nic Enabling：Feature 开发、Bug Fix
+成都海网传输层协议特性实现
 \begin{itemize}
-  \item PMD ice driver 开发
-  \item 实现了 Header Split feature 开发
-  \item Bug 定位、复现、方案修复(十二个bug)
-  \item Root Cause分析、修复、方案讨论
-  \item Patchwork
+  \item seanet传输层网络节点流量生成工具，基于海网（seanet）的专有节点，流量统计（overlay，multipath，隐匿）
+  \item seanet传输层协议特性开发以及维护（乱序重排、类似tcp的nack以及ack基于seanet网络的传输层实现及优化）
+  \item seanet已有的缓存单元文档输出，bug维护，性能优化。
+  \item 作为maintainner，review代码并负责合并。
 \end{itemize} 
 \end{onehalfspacing}
 
-\datedsubsection{\textbf{ baicells 技术有限公司}, 成都}{2019年8月 -- 2021年11月}
-\role{Linux 终端开发工程师} {C  shell gdb vscode kernel code}
+
+\datedsubsection{\textbf{星纪魅族技术有限公司}, 成都}{2022年9月 -- 2022年10月}
+\role{通信网络开发工程师}{gdb  c  git bluetooth, upnp}
 \begin{onehalfspacing}
-网卡驱动(NW) command line, https://github.com/wuwenxux/nw
+自研OS底层通信实现
 \begin{itemize}
-  \item NW client cmdline解析器
-  \item NW 配置文件读取、加载、重载、删除
-  \item NW 配置信息显示
-  \item 输入校验、异常处理、日志记录
-  \item configuration file support
-  \item support with openwrt config type、
-  \item 客户反馈故障，bug分析
-  \item Bug fix, 重构
-  \item code design (app lib kernel) 
+  \item 蓝牙协议分包支持
+  \item upnp协议分析
+\end{itemize} 
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{中科创达有限公司}, 成都}{2021年11月 -- 2022年8月}
+\role{驱动开发工程师}{gdb  c  git dpdk netstack}
+\begin{onehalfspacing}
+Intel PMD driver 维护开发 
+\begin{itemize}
+	\item Intel PMD driver 开发
+	\item 实现了 Header Split feature 开发
+	\item Bug 定位、复现、方案修复(十二个bug)
+	\item 对英特尔不同产品线网卡驱动(ixgbe, i40e, ice)Bug Root Cause分析、修复、方案讨论
+	\item Feature开发（基于810系列网卡的RTP协议切分，可以实现视频数据直接导入显卡内存）
+\end{itemize} 
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{baicells 技术有限公司}, 成都}{2019年8月 -- 2021年11月}
+\role{Linux 终端开发工程师}{C  shell gdb kernel 网络协议栈}
+\begin{onehalfspacing}
+NW 命令,配置文件解析器 
+\begin{itemize}
+	\item NW 配置文件读取、加载、重载、删除、显示
+	\item 输入校验、异常处理、日志记录
+	\item 客户反馈故障，bug分析
+	\item Bug fix, 重构
 \end{itemize}
 \end{onehalfspacing}
 
-\datedsubsection{\textbf{{内蒙古电网-鄂尔多斯电业局}}, 成都}{2013 年7月 -- 2018年9月}
+\datedsubsection{\textbf{国家电网}, 地级市电网}{2013 年7月 -- 2018年9月}
 \role{信息网络运维工程师}{网络规划、配置、策略部署、网络异常分析}
 \begin{onehalfspacing}
-信息网络运维工程师
+地级市通信网络、应用维护
 \begin{itemize}
-  \item 电网相关信息系统维护，OA, 财务，工作票，ERP
-  \item 电网相关通信设备维护（交换机、路由器、以及一些早期通信设备，以及用于变电站专用的通信设备）
-  \item 通信网络运维、网络规划、防火墙策略设置、组网策略设置、网络异常维护、设备巡检、性能监控、故障分析
-  \item 技术改造方案提出，改善
-  \item 评标专家，根据业务需求，参与项目评审
+\item 电网相关信息系统维护，OA, 财务，工作票，ERP
+\item 电网相关通信设备维护（交换机、路由器、以及一些早期通信设备，以及用于变电站专用的通信设备）
+\item 通信网络运维、网络规划、防火墙策略设置、组网策略设置、网络异常维护、设备巡检、性能监控、故障分析
+\item 电网科技项目负责人，实现、部署。
+\item 评标专家参与部门相关业务项目技术指标评审。
 \end{itemize}
 \end{onehalfspacing}
 
@@ -70,6 +88,7 @@ Nic Enabling：Feature 开发、Bug Fix
 %\begin{itemize}
 %  \item main contribution
 %\end{itemize}
+
 \section{\faGraduationCap\  教育背景}
 \datedsubsection{\textbf{四川大学}, 四川，成都}{2010 -- 2013}
 \textit{硕士研究生}\ 软件工程
@@ -80,7 +99,7 @@ Nic Enabling：Feature 开发、Bug Fix
 % increase linespacing [parsep=0.5ex]
 \begin{itemize}[parsep=0.5ex]
   \item C Bash Linux ops Office Suite gdb vim vscode
-  \item 网络协议熟悉，接触的工作框架熟悉，体系结构熟悉，常用数据结构熟悉，计算机基础
+  \item 网络协议熟悉，接触的工作框架熟悉，体系结构熟悉，常用数据结构熟悉，计算机基础熟悉
   \item Git 常用操作 
 \end{itemize}
 
