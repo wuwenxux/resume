@@ -4,9 +4,6 @@
 
 \documentclass{resume}
 \usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
-% \usepackage{NotoSansSC_external}
-% \usepackage{NotoSerifCJKsc_external}
-% \usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
 \usepackage{linespacing_fix} % disable extra space before next section
 \usepackage{cite}
 
@@ -19,32 +16,46 @@
   \email{wwx0306@foxmail.com} \textperiodcentered\ 
   \phone{(+86) 191-159-46187} \textperiodcentered\ 
   \linkedin[Wenxuan Wu]{https://www.linkedin.com/in/文轩-邬-5704b88b}}
- 
+\section{\faInfo\ 个人优势 }
+\begin{itemize}[parsep=0.5ex]
+	\item 多年服务器、嵌入式(Linux、Android)开发经验、对内核网络协议栈和应用开发非常熟悉
+	\item 熟悉TCP/IP协议栈，并设计和参与开发过新的传输层协议
+	\item 对网络维护和网络驱动开发有丰富经验，熟悉开源社区运营规则，并对某些知名项目有过贡献Kernel, DPDK等
+	\item 对网络性能问题有较深入积累和优化，时延、吞吐等相关优化方案
+\end{itemize}
+
 \section{\faUsers\ 工作经历}
-\datedsubsection{\textbf{成都海网技术有限公司}, 成都}{2022年11月 -- 至今}
-\role{dpdk 网络协议开发工程师}{gdb  c  git dpdk netstack}
+\datedsubsection{\textbf{鼎桥科技有限公司}, 成都}{2023年9月 -- }
+\role{资深开发工程师} {gdb  c  git dpdk netstack}
 \begin{onehalfspacing}
-成都海网传输层协议特性实现
+模组终端产品R17维护以及开发
 \begin{itemize}
-  \item seanet传输层网络节点流量生成工具，基于海网（seanet）的专有节点，流量统计（overlay，multipath，隐匿）
-  \item seanet传输层协议特性开发以及维护（乱序重排、类似tcp的nack以及ack基于seanet网络的传输层实现及优化）
-  \item seanet已有的缓存单元文档输出，bug维护，性能优化。
+	\item 终端产品在不同硬件(mips, arm, x86)平台下性能问题分析定位
+	\item 分析、定位、解决客户和FAE反馈的问题
+\end{itemize}
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{成都海网技术有限公司}, 成都}{2022年7月 -- 2023年8月}
+\role{dpdk 网络协议栈开发工程师}{gdb  c  git dpdk netstack}
+\begin{onehalfspacing}
+海网传输层协议特性实现
+\begin{itemize}
+  \item 独立完成seanet传输层网络节点流量生成工具，基于海网（seanet）的专有节点，流量统计（overlay，multipath，隐匿）
+  \item 独立完成基于seanet传输层协议特性开发以及维护（乱序重排、类似tcp的nack以及ack基于seanet网络的传输层实现及优化）
+  \item 完成seanet已有的缓存模块资产沉淀，包括完整的说明文档以及使用说明文档撰写，bug维护，特性开发。
   \item 作为maintainner，review代码并负责合并。
 \end{itemize} 
 \end{onehalfspacing}
 
-
-\datedsubsection{\textbf{星纪魅族技术有限公司}, 成都}{2022年9月 -- 2022年10月}
-\role{通信网络开发工程师}{gdb  c  git bluetooth, upnp}
 \begin{onehalfspacing}
-自研OS底层通信实现
+	Android 底层通信机制实现 {C 蓝牙协议}
 \begin{itemize}
   \item 蓝牙协议分包支持
   \item upnp协议分析
 \end{itemize} 
 \end{onehalfspacing}
 
-\datedsubsection{\textbf{中科创达有限公司}, 成都}{2021年11月 -- 2022年8月}
+\datedsubsection{\textbf{中科创达有限公司}, 成都}{2021年11月 -- 2022年7月}
 \role{驱动开发工程师}{gdb  c  git dpdk netstack}
 \begin{onehalfspacing}
 Intel PMD driver 维护开发 
@@ -60,34 +71,31 @@ Intel PMD driver 维护开发
 \datedsubsection{\textbf{baicells 技术有限公司}, 成都}{2019年8月 -- 2021年11月}
 \role{Linux 终端开发工程师}{C  shell gdb kernel 网络协议栈}
 \begin{onehalfspacing}
-NW 命令,配置文件解析器 
+nw户态解析程序
 \begin{itemize}
-	\item NW 配置文件读取、加载、重载、删除、显示
+	\item 配置文件读取、加载、重载、删除、显示
 	\item 输入校验、异常处理、日志记录
 	\item 客户反馈故障，bug分析
 	\item Bug fix, 重构
 \end{itemize}
+nw内核驱动模块
+	\begin{itemize}
+	\item mptcp 内核模块功能支持
+	\item 内核模块收包性能问题分析（性能、稳定性）输入参数校验
+	\item 内核模块驱动收包流程分析，以及用户态参数不生效问题分析
+	\end{itemize}
 \end{onehalfspacing}
 
-\datedsubsection{\textbf{国家电网}, 地级市电网}{2013 年7月 -- 2018年9月}
+\datedsubsection{\textbf{国家电网}, 地级市电网}{2013 年7月 -- 2019年7月}
 \role{信息网络运维工程师}{网络规划、配置、策略部署、网络异常分析}
 \begin{onehalfspacing}
 地级市通信网络、应用维护
 \begin{itemize}
-\item 电网相关信息系统维护，OA, 财务，工作票，ERP
-\item 电网相关通信设备维护（交换机、路由器、以及一些早期通信设备，以及用于变电站专用的通信设备）
-\item 通信网络运维、网络规划、防火墙策略设置、组网策略设置、网络异常维护、设备巡检、性能监控、故障分析
-\item 电网科技项目负责人，实现、部署。
-\item 评标专家参与部门相关业务项目技术指标评审。
+\item 电网相关信息系统维护，规划
+\item 电网相关设备网络故障分析
+\item 主导并参与电网相关科技项目预研、实现、落地 
 \end{itemize}
 \end{onehalfspacing}
-
-% Reference Test
-%\datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
-%An xxx optimized for xxx\cite{verma2015large}
-%\begin{itemize}
-%  \item main contribution
-%\end{itemize}
 
 \section{\faGraduationCap\  教育背景}
 \datedsubsection{\textbf{四川大学}, 四川，成都}{2010 -- 2013}
