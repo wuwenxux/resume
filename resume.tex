@@ -1,80 +1,123 @@
 % !TEX program = xelatex
 
 \documentclass{resume}
-%\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
-%\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
+\usepackage{setspace}
 
 \begin{document}
 \pagenumbering{gobble} % suppress displaying page number
 
-\name{Bin Yuan}
+\name{Wenxuan Wu}
 
 \basicInfo{
-  \email{yuanbin2014@gmail.com} \textperiodcentered\ 
-  \phone{(+86) 131-221-87xxx} \textperiodcentered\ 
-  \linkedin[billryan8]{https://www.linkedin.com/in/billryan8}}
+  \email{wwx0306@foxmail.com} \textperiodcentered\
+  \phone{(+86) 191-159-46187} \textperiodcentered\
+  \github[Wenxuan Wu]{https://github.com/wuwenxux}}
+
+\section{\faRocket\ Strengths}
+\begin{itemize}[parsep=0.5ex]
+	\item Extensive server/embedded Linux development experience with deep expertise in kernel network stack
+	\item RISC-V ISA: DPDK/SPDK driver porting, QEMU device emulation, Ceph distributed storage deployment and optimization
+	\item DPDK PMD driver development (Intel ixgbe/i40e/ice); custom transport-layer protocol design; open-source contributions to Kernel and DPDK
+\end{itemize}
+
+\section{\faBriefcase\ Work Experience}
+\datedsubsection{\textbf{Rivosemi}, Shenzhen}{Jul. 2025 -- Present}
+\role{Low-Level Software Engineer}{RISC-V C Ceph DPDK SPDK QEMU Shell}
+\begin{onehalfspacing}
+Ceph Distributed Storage Deployment and DPDK/SPDK Porting on RISC-V
+\begin{itemize}
+	\item Compiled Ceph 19.2.3 from source on RISC-V with DPDK/SPDK, fixed 5 RISC-V specific compilation errors, verified ceph-mon/osd linking with DPDK
+	\item Built ~8,500-line Shell deployment toolkit (7 scripts) for one-click 3-node Ceph cluster with auto-recovery from 14 failure types
+	\item Validated DPDK/SPDK on RISC-V; delivered DPDK implementation roadmap and RVA23 ISA performance analysis for SPDK/RDMA critical paths
+\end{itemize}
+\end{onehalfspacing}
+
+\begin{onehalfspacing}
+QEMU Emulation Platform Based on Proprietary RISC-V SoC
+\begin{itemize}
+	\item Built full-system QEMU emulation for proprietary RISC-V SoC enabling pre-silicon OS boot, driver, storage/network I/O validation; JSON-driven device framework covering 6 device types
+	\item Designed fault injection framework (28 types) and phased performance injection engine; refactored SoC codebase from single file to 8 independent modules
+\end{itemize}
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{Autel Robotics Co., Ltd.}, Shenzhen}{Feb. 2025 -- Apr. 2025}
+\role{Senior Network Development Engineer}{ARM64 C OpenSSL GmSSL Network Security}
+\begin{onehalfspacing}
+GmSSL Encryption Implementation for UAV Communication Networks
+\begin{itemize}
+	\item Implemented GmSSL encryption for power-industry requirements, establishing full-link encrypted channel across UAV, remote controller, and base station
+	\item Analyzed ChannelManager networking protocol interactions, authored end-to-end encryption testcases
+\end{itemize}
+\end{onehalfspacing}
+
+
+\datedsubsection{\textbf{TD Tech Ltd.}, Chengdu}{Jul. 2023 -- Feb. 2025}
+\role{Senior Network Development Engineer}{C gdb Kernel Network Stack HW/SW Co-Design}
+\begin{onehalfspacing}
+Kernel Network Stack Maintenance and Performance Optimization for Module Terminals
+\begin{itemize}
+	\item Led network protocol stack performance analysis and bottleneck identification across mips, arm, and x86 CPU architectures
+	\item Leveraged hardware offloading capabilities (checksum, segmentation offload) to reduce kernel stack processing overhead and improve data plane throughput
+\end{itemize}
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{Seawave Technology}, Chengdu}{Jul. 2022 -- Aug. 2023}
+\role{DPDK Network Protocol Stack Engineer}{C DPDK Custom Transport Layer Protocol Design}
+\begin{onehalfspacing}
+Custom Transport-Layer Protocol Design and Implementation
+\begin{itemize}
+	\item Independently designed and implemented transport-layer protocol mechanisms: out-of-order reordering and NACK-based retransmission for reliable delivery without TCP
+	\item Independently developed network traffic generation tool supporting overlay, multipath, and covert communication scenarios
+	\item Served as cache module Maintainer; completed asset documentation (design docs, usage guides, bug fixes) and code review
+\end{itemize}
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{Thundersoft Co., Ltd.}, Chengdu}{Nov. 2021 -- Jul. 2022}
+\role{DPDK Driver Development Engineer}{C DPDK Intel NIC Performance Optimization}
+\begin{onehalfspacing}
+Intel Ethernet PMD Driver Development and Maintenance
+\begin{itemize}
+	\item Maintained DPDK drivers for Intel ixgbe, i40e, and ice NIC families, diagnosing and fixing 12 driver defects
+	\item Implemented Header Split on RX path to eliminate per-packet CPU copy overhead
+	\item Developed RTP protocol splitting (Intel E810) for direct NIC-to-GPU video data transfer
+\end{itemize}
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{Baicells Technologies}, Chengdu}{Aug. 2019 -- Nov. 2021}
+\role{Linux Kernel Development Engineer}{C kernel MPTCP Userspace IPC}
+\begin{onehalfspacing}
+CPE Terminal Kernel Module and Userspace Management Development
+\begin{itemize}
+	\item Developed MPTCP (Multipath TCP) kernel module enabling simultaneous transmission over multiple links (4G+Wi-Fi) for increased bandwidth and reliability; performed in-depth kernel stack RX path performance analysis and optimization
+	\item Designed userspace configuration management tool with IPC mechanism for parameter delivery, validation, and runtime state synchronization with kernel module
+\end{itemize}
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{State Grid Corporation of China}}{Jul. 2013 -- Jul. 2019}
+\role{Network Engineer}{OSPF BGP VLAN Firewall Network Architecture}
+\begin{onehalfspacing}
+Provincial-Level Power Communication Network Planning and Operations
+\begin{itemize}
+	\item Responsible for network architecture design and planning across 50+ substations, with deep understanding of OSPF/BGP routing protocols, VLAN isolation, and firewall security policies
+\end{itemize}
+\end{onehalfspacing}
 
 \section{\faGraduationCap\ Education}
-\datedsubsection{\textbf{Shanghai Jiao Tong University (SJTU)}, Shanghai, China}{2013 -- Present}
-\textit{Master student} in Electronics Engineering (EE), expected March 2016
-\datedsubsection{\textbf{Xidian University}, Shaanxi, China}{2009 -- 2013}
-\textit{B.S.} in Electronics Engineering (EE)
+\datedsubsection{\textbf{Sichuan University}, Chengdu, China}{2010 -- 2013}
+\textit{M.S.} in Software Engineering
+\datedsubsection{\textbf{Sichuan University}, Chengdu, China}{2006 -- 2010}
+\textit{B.S.} in Software Engineering
 
-\section{\faUsers\ Experience}
-\datedsubsection{\textbf{FLAG Inc.} California, America}{2012 -- Present}
-\role{Summer Intern}{Manager: xxx}
-Brief introduction: xxx.
-\begin{itemize}
-  \item Implemented xxx feature
-  \item Optimized xxx 5\%
-  \item xxx
-\end{itemize}
-
-\datedsubsection{\textbf{xxx Projects}}{Jan. 2015 -- Present}
-\role{C, Python, Django, Linux}{Individual Projects, collaborated with xxx}
-Brief introduction: xxx
-\begin{itemize}
-  \item Implemented xxx feature
-  \item Optimized xxx 5\%
-  \item xxx
-\end{itemize}
-
-\datedsubsection{\textbf{\LaTeX\ résumé template}}{May. 2015 -- Present}
-\role{\LaTeX, Maintainer}{Individual Projects}
-An elegant \LaTeX\ résumé template, https://github.com/billryan/resume
-\begin{itemize}
-  \item Easy to be further customized or extended
-  \item Full support for unicode characters (e.g. CJK) with \XeLaTeX\
-  \item FontAwesome 4.5.0 support
-\end{itemize}
-
-% Reference Test
-%\datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
-%An xxx optimized for xxx\cite{verma2015large}
-%\begin{itemize}
-%  \item main contribution
-%\end{itemize}
-
-\section{\faCogs\ Skills}
+\section{\faWrench\ Technical Skills}
 \begin{itemize}[parsep=0.5ex]
-  \item Programming Languages: C == Python > C++ > Java
-  \item Platform: Linux
-  \item Development: Web, xxx
+  \item C Bash Linux RISC-V DPDK SPDK Ceph gdb vim vscode vibe-coding (Claude Code, Cursor)
+  \item Network protocol stacks, driver development, distributed storage, kernel/userspace IPC, computer architecture
+  \item Git
 \end{itemize}
 
-\section{\faHeartO\ Honors and Awards}
-\datedline{\textit{\nth{1} Prize}, Award on xxx }{Jun. 2013}
-\datedline{Other awards}{2015}
-
-\section{\faInfo\ Miscellaneous}
+\section{\faGlobe\ Miscellaneous}
 \begin{itemize}[parsep=0.5ex]
-  \item Blog: http://your.blog.me
-  \item GitHub: https://github.com/username
-  \item Languages: English - Fluent, Mandarin - Native speaker
+  \item Languages: Mandarin (Native), English (Proficient -- TOEFL 92, CET-6)
 \end{itemize}
 
-%% Reference
-%\newpage
-%\bibliographystyle{IEEETran}
-%\bibliography{mycite}
 \end{document}

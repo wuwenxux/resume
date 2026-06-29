@@ -56,10 +56,10 @@
 \titlespacing*{\section}{0cm}{*1.8}{*1.8}
 
 \titleformat{\subsection}
-  {\large\raggedright}
+  {\normalsize\bfseries\raggedright}
   {}{0em}
   {}
-\titlespacing*{\subsection}{0cm}{*1.8}{*0.6}
+\titlespacing*{\subsection}{0cm}{*1.8}{*1.5}
 
 \newcommand{\datedsection}[2]{%
   \section[#1]{#1 \hfill #2}%
@@ -117,6 +117,6 @@
 }
 
 \newcommand{\role}[2]{
-  {\par \textit{#1} ~ #2 \par}
-  \vspace{0.85ex}
+  {\par \textit{#1} ~ \texttt{#2} \par}
+  \vspace{1.5ex}
 }

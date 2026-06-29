@@ -15,97 +15,95 @@
 \basicInfo{
   \email{wwx0306@foxmail.com} \textperiodcentered\ 
   \phone{(+86) 191-159-46187} \textperiodcentered\ 
-  \linkedin[Wenxuan Wu]{https://www.linkedin.com/in/文轩-邬-5704b88b}}
-\section{\faInfo\ 个人优势 }
+  \github[Wenxuan Wu]{https://github.com/wuwenxux}}
+\section{\faRocket\ 个人优势}
 \begin{itemize}[parsep=0.5ex]
-	\item 多年服务器、嵌入式(Linux、Android)开发经验、对内核网络协议栈和应用开发非常熟悉
-	\item 熟悉TCP/IP协议栈，并设计和参与开发过新的传输层协议
-	\item 对网络驱动开发有丰富经验，熟悉开源社区运营规则，并对某些知名项目有过贡献Kernel, DPDK等
-	\item 对网络维护和网络性能问题有较深入积累和优化，时延、吞吐等相关优化方案
+	\item 多年服务器、嵌入式 Linux 开发经验，熟悉内核网络协议栈和应用开发
+	\item 熟悉 RISC-V 指令集架构，有 RISC-V 平台下 DPDK/SPDK 驱动移植及 QEMU 设备模拟经验
+	\item 熟悉 Ceph 分布式存储，有自动化部署及基于 SPDK/DPDK 的性能优化方案经验
+	\item 熟悉TCP/IP协议栈，参与设计和开发过新的传输层协议
+	\item 对网络驱动开发有丰富经验，熟悉开源社区运营规则，对 Kernel、DPDK 等项目有过代码贡献
 \end{itemize}
 
-\section{\faUsers\ 工作经历}
-\datedsubsection{\textbf{道通智能航空有限公司}, 深圳}{2025年2月 -- 至今 }
-\role{高级网络开发工程师} {arm64 c git android ndk cross-plateform }
+\section{\faBriefcase\ 工作经历}
+\datedsubsection{\textbf{睿思芯科}, 深圳}{2025年7月 -- 至今}
+\role{底层软件工程师}{RISC-V C Ceph DPDK SPDK QEMU Shell}
 \begin{onehalfspacing}
-国密openssl加密支持
+RISC-V 平台 Ceph 分布式存储从零部署与 DPDK/SPDK 适配
 \begin{itemize}
-	\item 无人机、遥控器、基站网络，国网特定加密需求（gmssl）调研以及实现。 
-	\item 现有无人机组网程序（ChannelManager）逻辑梳理和日志分析
-	\item 反馈、定位、分析、解决国网加密需求并根据我们业务提供testcase适配、验证。
+	\item 在 RISC-V 上从源码编译 Ceph 19.2.3 并启用 DPDK/SPDK，修复 5 个源文件的 RISC-V 架构编译错误，验证 ceph-mon/osd 与 DPDK 库链接
+	\item 独立编写 ~8500 行 Shell 部署脚本，实现 3 节点 Ceph 集群一键部署与 14 类故障自动修复
+	\item 完成 DPDK/SPDK 在 RISC-V 上的部署验证，输出 DPDK 实现路线图及 RVA23 ISA 扩展对 SPDK/RDMA 的性能优化分析
+\end{itemize}
+\end{onehalfspacing}
+
+\begin{onehalfspacing}
+基于自研 RISC-V SoC 的 QEMU 仿真平台开发
+\begin{itemize}
+	\item 搭建自研 SoC 全系统仿真环境，在流片前实现 OS 启动、驱动加载、存储/网络 I/O 全链路验证；JSON 驱动设备模拟框架覆盖 SATA HDD、NVMe SSD、GPU、NIC 等 6 种设备
+	\item 设计故障注入框架（28 种故障类型）及分阶段性能参数注入引擎，用于可靠性验证与早期性能评估；将 SoC 仿真代码从单文件重构为 8 个独立模块
+\end{itemize}
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{道通智能航空有限公司}, 深圳}{2025年2月 -- 2025年4月}
+\role{高级网络开发工程师}{arm64 C OpenSSL 国密 网络安全}
+\begin{onehalfspacing}
+无人机通信网络国密加密方案落地
+\begin{itemize}
+	\item 针对电力行业国密加密需求，调研并落地 GmSSL 方案，实现无人机、遥控器、基站三者之间的全链路加密通信
+	\item 梳理 ChannelManager 组网模块的协议交互逻辑，编写 Testcase 对加密通道进行端到端验证
 \end{itemize}
 \end{onehalfspacing}
 
 
-\datedsubsection{\textbf{鼎桥科技有限公司}, 成都}{2023年7月 --2024年7月 }
-\role{网络资深开发工程师} {gdb  c  git  netstack}
+\datedsubsection{\textbf{鼎桥科技有限公司}, 成都}{2023年7月 -- 2025年2月}
+\role{资深网络开发工程师}{C gdb 内核网络协议栈 软硬协同}
 \begin{onehalfspacing}
-模组终端产品R17维护以及开发
+模组终端内核网络协议栈性能优化
 \begin{itemize}
-	\item 终端产品在不同硬件(mips, arm, x86)平台下性能问题分析、定位
-	\item 分析、定位、解决客户和FAE反馈的问题
+	\item 主导终端产品在 mips、arm、x86 多种 CPU 架构下的网络协议栈性能分析与瓶颈定位
+	\item 利用硬件卸载能力（如硬件校验和、分段卸载）分担内核协议栈处理负载，提升数据面吞吐
 \end{itemize}
 \end{onehalfspacing}
 
 \datedsubsection{\textbf{成都海网技术有限公司}, 成都}{2022年7月 -- 2023年8月}
-\role{dpdk 网络协议栈开发工程师}{gdb  c  git dpdk netstack}
+\role{DPDK 网络协议栈开发工程师}{C DPDK 自定义传输层 协议设计}
 \begin{onehalfspacing}
-海网传输层协议特性实现
+自定义传输层协议设计与实现
 \begin{itemize}
-  \item 独立完成seanet传输层网络节点流量生成工具，基于海网（seanet）的专有节点，流量统计（overlay，multipath，隐匿）
-  \item 独立完成基于seanet传输层协议特性开发以及维护（乱序重排、类似tcp的nack以及ack基于seanet网络的传输层实现及优化）
-  \item 完成seanet已有的缓存模块资产沉淀，包括完整的说明文档以及使用说明文档撰写，bug维护，特性开发。
-  \item 作为maintainner，review代码并负责合并。
-\end{itemize} 
-\end{onehalfspacing}
-
-\begin{onehalfspacing}
-	Android 底层通信机制实现 {C 蓝牙协议}
-\begin{itemize}
-  \item 蓝牙协议分包支持和实现
-  \item upnp协议分析
-\end{itemize} 
+	\item 独立设计并实现自定义传输层协议核心机制：乱序重排与 NACK 丢包重传，不依赖 TCP 协议栈即可保证可靠传输
+	\item 独立开发网络节点流量生成工具，支持叠加组网、多路径传输、隐蔽通信等场景的流量模拟与统计
+	\item 完成缓存模块资产沉淀（设计文档、使用说明、Bug 修复），作为 Maintainer 负责代码 Review 与合并
+\end{itemize}
 \end{onehalfspacing}
 
 \datedsubsection{\textbf{中科创达有限公司}, 成都}{2021年11月 -- 2022年7月}
-\role{驱动开发工程师}{gdb  c  git dpdk netstack}
+\role{DPDK 驱动开发工程师}{C DPDK Intel 网卡 性能优化}
 \begin{onehalfspacing}
-Intel PMD driver 维护开发 
+Intel 以太网卡 DPDK 驱动开发与维护
 \begin{itemize}
-	\item Intel PMD driver 开发
-	\item 实现了 Header Split feature 开发
-	\item Bug 定位、复现、方案修复(十二个bug)
-	\item 对英特尔不同产品线网卡驱动(ixgbe, i40e, ice)Bug Root Cause分析、修复、方案讨论
-	\item Feature开发（基于810系列网卡的RTP协议切分，可以实现视频数据直接导入显卡内存）
-\end{itemize} 
+	\item 负责 Intel ixgbe、i40e、ice 三大系列网卡的 DPDK 驱动维护，累计定位并修复 12 个驱动缺陷
+	\item 实现收包路径 Header Split 优化：将包头与负载分离存放，省去 CPU 逐包拷贝解析的开销
+	\item 开发 RTP 协议切分特性（Intel E810），视频流从网卡直入 GPU 显存，免去 CPU/内存中转
+\end{itemize}
 \end{onehalfspacing}
 
 \datedsubsection{\textbf{baicells 技术有限公司}, 成都}{2019年8月 -- 2021年11月}
-\role{Linux 终端开发工程师}{C  shell gdb kernel 网络协议栈}
+\role{Linux 内核开发工程师}{C kernel MPTCP 用户态 IPC}
 \begin{onehalfspacing}
-nw户态解析程序
+CPE 终端内核模块及用户态管理程序开发
 \begin{itemize}
-	\item 配置文件读取、加载、重载、删除、显示
-	\item 输入校验、异常处理、日志记录
-	\item 客户反馈故障，bug分析
-	\item Bug fix, 重构
+	\item 负责 MPTCP（多路径 TCP）内核模块开发，使终端同时利用 4G+Wi-Fi 等多条链路聚合传输，提升带宽与可靠性；深入内核协议栈收包路径进行性能分析与优化
+	\item 设计用户态配置管理程序，通过 IPC 与内核模块交互，实现参数下发、合法性校验与状态同步
 \end{itemize}
-nw内核驱动模块
-	\begin{itemize}
-	\item mptcp 内核模块功能支持
-	\item 内核模块收包性能问题分析（性能、稳定性）输入参数校验
-	\item 内核模块驱动收包流程分析，以及用户态参数不生效问题分析
-	\end{itemize}
 \end{onehalfspacing}
 
 \datedsubsection{\textbf{国家电网}, 地级市电网}{2013 年7月 -- 2019年7月}
-\role{信息网络运维工程师}{网络规划、配置、策略部署、网络异常分析}
+\role{信息网络工程师}{OSPF BGP VLAN 防火墙 网络架构}
 \begin{onehalfspacing}
-地级市通信网络、应用维护
+省级电力通信网络规划与运维
 \begin{itemize}
-\item 电网相关信息系统维护，规划
-\item 电网相关设备网络故障分析
-\item 主导并参与电网相关科技项目预研、实现、落地 
+	\item 负责 50+ 变电站通信网络架构设计与规划，深入理解 OSPF/BGP 路由协议、VLAN 隔离、防火墙策略等底层网络原理
 \end{itemize}
 \end{onehalfspacing}
 
@@ -115,18 +113,17 @@ nw内核驱动模块
 \datedsubsection{\textbf{四川大学}, 四川, 成都}{2006 -- 2010}
 \textit{学士}\ 软件工程
 
-\section{\faCogs\ IT 技能}
+\section{\faWrench\ IT 技能}
 % increase linespacing [parsep=0.5ex]
 \begin{itemize}[parsep=0.5ex]
-  \item C Bash Linux ops Office Suite gdb vim vscode
-  \item 网络协议熟悉，接触的工作框架熟悉，体系结构熟悉，常用数据结构熟悉，计算机基础熟悉
+  \item C Bash Linux RISC-V DPDK SPDK Ceph gdb vim vscode vibe-coding(Claude Code, Cursor)
+  \item 网络协议栈、驱动开发、分布式存储、内核用户态通讯、体系结构熟悉
   \item Git 常用操作 
 \end{itemize}
 
-\section{\faInfo\ 其他}
+\section{\faGlobe\ 其他}
 % increase linespacing [parsep=0.5ex]
 \begin{itemize}[parsep=0.5ex]
-  \item GitHub: https://github.com/wuwenxux
   \item 英语  听说读写熟练(TOEFL 92) CET 6级
 \end{itemize}
 
