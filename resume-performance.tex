@@ -1,0 +1,107 @@
+% !TEX program = xelatex
+% Tailored for: Supabase Performance Engineer (Performance Analysis & Tuning / Benchmarking)
+
+\documentclass{resume}
+\usepackage{setspace}
+
+\begin{document}
+\pagenumbering{gobble} % suppress displaying page number
+
+\name{Wenxuan Wu}
+
+\basicInfo{
+  \email{wwx0306@foxmail.com} \textperiodcentered\
+  \phone{(+86) 191-159-46187} \textperiodcentered\
+  \github[Wenxuan Wu]{https://github.com/wuwenxux}}
+
+\section{\faRocket\ Profile}
+\begin{itemize}[parsep=0.5ex]
+	\item Performance-focused systems engineer: 6+ years of C on Linux kernel networking and DPDK, finding and fixing data-plane bottlenecks across mips, arm, and x86
+	\item I walk the whole stack --- from NIC hardware offload through the kernel datapath to userspace zero-copy --- and I build the tooling (traffic generators, fault/performance injection, deployment automation) that makes performance work reproducible
+	\item I also run my own production service end to end, where every design decision is constrained by real latency, quota, and cost budgets
+\end{itemize}
+
+\section{\faLightbulbO\ Side Project --- production SaaS under hard resource budgets}
+\datedsubsection{\textbf{FrogLeap} --- token-based network acceleration service}{Aug. 2026 -- Present}
+\role{Solo owner: architecture, product, review, ops. Code largely written by AI coding agents under my direction}{Cloudflare Workers KV Hono React TypeScript Python Xray}
+\begin{onehalfspacing}
+\faGlobe\ \href{https://fastergamer.click}{fastergamer.click} ---
+Problem: run a paid, multi-node network service \emph{alone}, on a free tier allowing only 1k KV writes/day.
+\begin{itemize}
+	\item \textbf{Engineered the metering path down to near-zero writes}: nodes settle traffic only on disconnect/quota events instead of periodic reporting --- the whole paid service fits in Cloudflare's free quota with headroom
+	\item \textbf{Built measurement into the product}: per-device traffic accounting, node latency probing from inside mainland China, and abuse throttles (daily-quota limiters) that had to be accurate enough to bill against but cheap enough to run everywhere
+	\item \textbf{What this trained}: performance work as an economic constraint --- every observation point and every state write had to justify its cost; AI agents wrote most of the code, I owned the design, review, and test discipline (vitest, unittest, real-link end-to-end)
+\end{itemize}
+\end{onehalfspacing}
+
+\section{\faBriefcase\ Work Experience}
+\datedsubsection{\textbf{Rivosemi}, Shenzhen}{Jul. 2025 -- Present}
+\role{Low-Level Software Engineer}{RISC-V C Ceph DPDK SPDK QEMU Shell}
+\begin{onehalfspacing}
+\begin{itemize}
+	\item \textbf{Built pre-silicon performance evaluation for an untaped RISC-V SoC}: a QEMU full-system emulation platform plus a phased performance-parameter injection engine and fault-injection framework (28 fault types), so teams get early perf and reliability signals months before silicon exists
+	\item \textbf{Analyzed how next-gen ISA extensions move real workloads}: delivered an RVA23 ISA performance analysis for SPDK/RDMA critical paths, and turned Ceph-on-RISC-V from ``doesn't compile'' into a one-click 3-node deployment ($\sim$8.5k lines of shell, auto-recovery from 14 failure classes)
+\end{itemize}
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{TD Tech}, Chengdu}{Jul. 2023 -- Feb. 2025}
+\role{Senior Network Engineer}{C gdb Kernel Network Stack HW Offload}
+\begin{onehalfspacing}
+\begin{itemize}
+	\item \textbf{Owned network-stack performance for cellular terminals across mips/arm/x86}: characterized data-plane bottlenecks with gdb/profiling at the kernel boundary, then moved work onto hardware offload (checksum, segmentation) --- throughput gains without touching application code
+\end{itemize}
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{Seawave Technology}, Chengdu}{Jul. 2022 -- Aug. 2023}
+\role{DPDK Protocol Stack Engineer}{C DPDK Transport Protocol Design}
+\begin{onehalfspacing}
+\begin{itemize}
+	\item \textbf{Built the load side of the loop too}: independently developed a network traffic generation tool simulating overlay, multipath, and covert-communication workloads with statistics --- the benchmark harness that made the custom reliable transport (reordering + NACK retransmission, no TCP) measurable and tunable
+\end{itemize}
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{Intel}, Chengdu}{Nov. 2021 -- Jul. 2022}
+\role{DPDK Driver Engineer}{C DPDK ixgbe/i40e/ice}
+\begin{onehalfspacing}
+\begin{itemize}
+	\item \textbf{Zero-copy performance work in production drivers}: maintained DPDK PMDs for Intel ixgbe/i40e/ice (12 defects root-caused and fixed); implemented header split and a NIC$\to$GPU direct path (E810) that removed per-packet CPU copies from a video pipeline
+\end{itemize}
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{Baicells Technologies}, Chengdu}{Aug. 2019 -- Nov. 2021}
+\role{Linux Kernel Engineer}{C kernel MPTCP Userspace IPC}
+\begin{onehalfspacing}
+\begin{itemize}
+	\item Built an MPTCP kernel module aggregating 4G+Wi-Fi links on CPE terminals; performed in-depth kernel RX-path performance analysis and optimization alongside it
+\end{itemize}
+\end{onehalfspacing}
+
+\datedsubsection{\textbf{State Grid Corporation of China}}{Jul. 2013 -- Jul. 2019}
+\role{Network Engineer}{OSPF BGP VLAN Firewall}
+\begin{onehalfspacing}
+\begin{itemize}
+	\item Planned and operated communication networks for 50+ substations --- six years of production operations that ground how I judge performance risk
+\end{itemize}
+\end{onehalfspacing}
+
+\section{\faGraduationCap\ Education}
+\datedsubsection{\textbf{Sichuan University}, Chengdu, China}{2010 -- 2013}
+\textit{M.S.} in Software Engineering
+\datedsubsection{\textbf{Sichuan University}, Chengdu, China}{2006 -- 2010}
+\textit{B.S.} in Software Engineering
+
+\section{\faWrench\ Skills}
+\begin{itemize}[parsep=0.5ex]
+  \item Performance analysis: kernel network stack, gdb, profiling, hardware offload, zero-copy data paths
+  \item C, Python, TypeScript, Bash; DPDK/SPDK, Ceph, RISC-V, QEMU, traffic generation, fault injection
+  \item AI-augmented development (Claude Code, Cursor): task decomposition, agent-facing docs, AI-output review
+  \item gdb, Git, vim/vscode
+\end{itemize}
+
+\section{\faGlobe\ Miscellaneous}
+\begin{itemize}[parsep=0.5ex]
+  \item English: full professional proficiency (TOEFL 92, CET-6); async, written-first collaboration
+  \item Open-source contributor to Linux Kernel and DPDK
+\end{itemize}
+
+\end{document}

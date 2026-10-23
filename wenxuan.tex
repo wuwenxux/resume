@@ -1,134 +1,116 @@
-% !TEX TS-program = xelatex
-% !TEX encoding = UTF-8 Unicode
-% !Mode:: "TeX:UTF-8"
+% !TEX program = xelatex
+% Tailored for: Supabase Platform Engineer, Edge & Networking
 
 \documentclass{resume}
-\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
-\usepackage{linespacing_fix} % disable extra space before next section
-\usepackage{cite}
+\usepackage{setspace}
 
 \begin{document}
 \pagenumbering{gobble} % suppress displaying page number
 
-\name{邬文轩}
+\name{Wenxuan Wu}
 
 \basicInfo{
-  \email{wwx0306@foxmail.com} \textperiodcentered\ 
-  \phone{(+86) 191-159-46187} \textperiodcentered\ 
+  \email{wwx0306@foxmail.com} \textperiodcentered\
+  \phone{(+86) 191-159-46187} \textperiodcentered\
   \github[Wenxuan Wu]{https://github.com/wuwenxux}}
-\section{\faRocket\ 个人优势}
+
+\section{\faRocket\ Profile}
 \begin{itemize}[parsep=0.5ex]
-	\item 多年服务器、嵌入式 Linux 开发经验，熟悉内核网络协议栈和应用开发
-	\item 熟悉 RISC-V 指令集架构，有 RISC-V 平台下 DPDK/SPDK 驱动移植及 QEMU 设备模拟经验
-	\item 熟悉 Ceph 分布式存储，有自动化部署及基于 SPDK/DPDK 的性能优化方案经验
-	\item 熟悉TCP/IP协议栈，参与设计和开发过新的传输层协议
-	\item 对网络驱动开发有丰富经验，熟悉开源社区运营规则，对 Kernel、DPDK 等项目有过代码贡献
+	\item Networking engineer at every layer: 6 years operating ISP-grade routed networks (OSPF/BGP, VLAN, firewall), then 6+ years building networks in code --- kernel TCP/IP stack, DPDK user-space fast path, NIC drivers, and a custom transport protocol of my own design
+	\item Today I design, deploy, and operate my own global multi-node edge service in production: TLS termination with automated certificates, domain-level traffic steering, node health probing, client-side failover, and edge WAF --- solo, 24/7, on a zero-dollar platform
+	\item I own systems end to end: build, deploy, observe, troubleshoot, document --- and I debug across the whole path from NIC to kernel to application
 \end{itemize}
 
-\section{\faBriefcase\ 工作经历}
-\datedsubsection{\textbf{睿思芯科}, 深圳}{2025年7月 -- 至今}
-\role{底层软件工程师}{RISC-V C Ceph DPDK SPDK QEMU Shell}
+\section{\faLightbulbO\ Side Project --- my own edge network, in production}
+\datedsubsection{\textbf{FrogLeap} --- token-based network acceleration service}{Aug. 2026 -- Present}
+\role{Solo owner: architecture, network design, review, on-call. Code largely written by AI coding agents under my direction}{Cloudflare Workers KV Xray VLESS TLS DNS Python TypeScript}
 \begin{onehalfspacing}
-RISC-V 平台 Ceph 分布式存储从零部署与 DPDK/SPDK 适配
+\faGlobe\ \href{https://fastergamer.click}{fastergamer.click} ---
+A paid service where users pick from multiple global VPS exit nodes; the control plane lives entirely on Cloudflare's edge.
 \begin{itemize}
-	\item 在 RISC-V 上从源码编译 Ceph 19.2.3 并启用 DPDK/SPDK，修复 5 个源文件的 RISC-V 架构编译错误，验证 ceph-mon/osd 与 DPDK 库链接
-	\item 独立编写 ~8500 行 Shell 部署脚本，实现 3 节点 Ceph 集群一键部署与 14 类故障自动修复
-	\item 完成 DPDK/SPDK 在 RISC-V 上的部署验证，输出 DPDK 实现路线图及 RVA23 ISA 扩展对 SPDK/RDMA 的性能优化分析
+	\item \textbf{Traffic steering as a product}: routing policy is shipped through the subscription itself --- per-exit node groups and domain-based pinning (e.g.\ routing Instagram domains through exits that don't trigger risk control), delivered in three client formats (Clash/v2ray/sing-box) with UA-based auto-detection; clients fail over across nodes automatically
+	\item \textbf{TLS and DNS operations}: every node terminates VLESS+WS+TLS on its own \texttt{*.fastergamer.click} name with automated certificate issuance (Caddy/Nginx fronting Xray); I manage DNS, edge WAF rules, and the 301 migration that moved an entire user base from the old domain without breaking live subscriptions
+	\item \textbf{Observability and health}: per-device traffic accounting on every node, latency probing of all exits from inside mainland China with failure alerting, and a real-time concurrency signal per credential that doubles as abuse detection
+	\item \textbf{Edge-native control plane}: token vending, node registry, and traffic settlement in Workers + KV --- event-driven by design (the free tier allows 1k writes/day); authorization changes are pushed to nodes instantly rather than polled
+	\item \textbf{What this trained}: running a real edge network alone --- TLS at scale, failover design, cost/latency trade-offs, incident response with paying users --- with AI agents writing most of the code while I owned design, review, and test discipline
 \end{itemize}
 \end{onehalfspacing}
 
+\section{\faBriefcase\ Work Experience}
+\datedsubsection{\textbf{Rivosemi}, Shenzhen}{Jul. 2025 -- Present}
+\role{Low-Level Software Engineer}{RISC-V C DPDK SPDK Ceph QEMU}
 \begin{onehalfspacing}
-基于自研 RISC-V SoC 的 QEMU 仿真平台开发
 \begin{itemize}
-	\item 搭建自研 SoC 全系统仿真环境，在流片前实现 OS 启动、驱动加载、存储/网络 I/O 全链路验证；JSON 驱动设备模拟框架覆盖 SATA HDD、NVMe SSD、GPU、NIC 等 6 种设备
-	\item 设计故障注入框架（28 种故障类型）及分阶段性能参数注入引擎，用于可靠性验证与早期性能评估；将 SoC 仿真代码从单文件重构为 8 个独立模块
+	\item \textbf{Emulated the network before the chip exists}: QEMU full-system platform for a proprietary RISC-V SoC with JSON-driven NIC/storage device models and a fault-injection framework (28 fault types) --- network/storage I/O paths validated months ahead of tape-out, including failure behavior that hardware can't produce on demand
+	\item \textbf{Analyzed RVA23 ISA extensions for SPDK/RDMA network paths} and made Ceph on RISC-V deployable: one-click 3-node clusters ($\sim$8.5k lines of shell) with auto-recovery from 14 failure classes
 \end{itemize}
 \end{onehalfspacing}
 
-\datedsubsection{\textbf{道通智能航空有限公司}, 深圳}{2025年2月 -- 2025年4月}
-\role{高级网络开发工程师}{arm64 C OpenSSL 国密 网络安全}
+\datedsubsection{\textbf{Autel Robotics}, Shenzhen}{Feb. 2025 -- Apr. 2025}
+\role{Senior Network Engineer}{ARM64 C OpenSSL GmSSL}
 \begin{onehalfspacing}
-无人机通信网络国密加密方案落地
 \begin{itemize}
-	\item 针对电力行业国密加密需求，调研并落地 GmSSL 方案，实现无人机、遥控器、基站三者之间的全链路加密通信
-	\item 梳理 ChannelManager 组网模块的协议交互逻辑，编写 Testcase 对加密通道进行端到端验证
+	\item Landed end-to-end encrypted communication across drone, controller, and base station: evaluated and integrated GmSSL (a national-crypto TLS variant with its own certificate system), and verified the encrypted channel end to end with authored test cases
 \end{itemize}
 \end{onehalfspacing}
 
-
-\datedsubsection{\textbf{鼎桥科技有限公司}, 成都}{2023年7月 -- 2025年2月}
-\role{资深网络开发工程师}{C gdb 内核网络协议栈 软硬协同}
+\datedsubsection{\textbf{TD Tech}, Chengdu}{Jul. 2023 -- Feb. 2025}
+\role{Senior Network Engineer}{C gdb Kernel TCP/IP HW Offload}
 \begin{onehalfspacing}
-模组终端内核网络协议栈性能优化
 \begin{itemize}
-	\item 主导终端产品在 mips、arm、x86 多种 CPU 架构下的网络协议栈性能分析与瓶颈定位
-	\item 利用硬件卸载能力（如硬件校验和、分段卸载）分担内核协议栈处理负载，提升数据面吞吐
+	\item Owned TCP/IP stack performance for cellular terminals across mips/arm/x86: located kernel data-plane bottlenecks and pushed work onto NIC hardware offload (checksum, segmentation) --- throughput gains without touching application code
 \end{itemize}
 \end{onehalfspacing}
 
-\datedsubsection{\textbf{成都海网技术有限公司}, 成都}{2022年7月 -- 2023年8月}
-\role{DPDK 网络协议栈开发工程师}{C DPDK 自定义传输层 协议设计}
+\datedsubsection{\textbf{Seawave Technology}, Chengdu}{Jul. 2022 -- Aug. 2023}
+\role{DPDK Protocol Stack Engineer}{C DPDK Transport Protocol Design}
 \begin{onehalfspacing}
-自定义传输层协议设计与实现
 \begin{itemize}
-	\item 独立设计并实现自定义传输层协议核心机制：乱序重排与 NACK 丢包重传，不依赖 TCP 协议栈即可保证可靠传输
-	\item 独立开发网络节点流量生成工具，支持叠加组网、多路径传输、隐蔽通信等场景的流量模拟与统计
-	\item 完成缓存模块资产沉淀（设计文档、使用说明、Bug 修复），作为 Maintainer 负责代码 Review 与合并
+	\item \textbf{Built my own transport when TCP wasn't an option}: designed and implemented out-of-order reordering, NACK-based retransmission, and multipath forwarding over DPDK for overlay and covert-communication networks; also built the traffic generator used to load-test it --- protocol design, implementation, and measurement in one pair of hands
 \end{itemize}
 \end{onehalfspacing}
 
-\datedsubsection{\textbf{中科创达有限公司}, 成都}{2021年11月 -- 2022年7月}
-\role{DPDK 驱动开发工程师}{C DPDK Intel 网卡 性能优化}
+\datedsubsection{\textbf{Intel}, Chengdu}{Nov. 2021 -- Jul. 2022}
+\role{DPDK Driver Engineer}{C DPDK ixgbe/i40e/ice}
 \begin{onehalfspacing}
-Intel 以太网卡 DPDK 驱动开发与维护
 \begin{itemize}
-	\item 负责 Intel ixgbe、i40e、ice 三大系列网卡的 DPDK 驱动维护，累计定位并修复 12 个驱动缺陷
-	\item 实现收包路径 Header Split 优化：将包头与负载分离存放，省去 CPU 逐包拷贝解析的开销
-	\item 开发 RTP 协议切分特性（Intel E810），视频流从网卡直入 GPU 显存，免去 CPU/内存中转
+	\item Maintained DPDK PMD drivers for Intel ixgbe/i40e/ice (12 defects root-caused and fixed); implemented receive-path header split and protocol-aware NIC offload (E810) steering video flows straight into GPU memory --- traffic classification offloaded to the NIC itself
 \end{itemize}
 \end{onehalfspacing}
 
-\datedsubsection{\textbf{baicells 技术有限公司}, 成都}{2019年8月 -- 2021年11月}
-\role{Linux 内核开发工程师}{C kernel MPTCP 用户态 IPC}
+\datedsubsection{\textbf{Baicells Technologies}, Chengdu}{Aug. 2019 -- Nov. 2021}
+\role{Linux Kernel Engineer}{C kernel MPTCP Userspace IPC}
 \begin{onehalfspacing}
-CPE 终端内核模块及用户态管理程序开发
 \begin{itemize}
-	\item 负责 MPTCP（多路径 TCP）内核模块开发，使终端同时利用 4G+Wi-Fi 等多条链路聚合传输，提升带宽与可靠性；深入内核协议栈收包路径进行性能分析与优化
-	\item 设计用户态配置管理程序，通过 IPC 与内核模块交互，实现参数下发、合法性校验与状态同步
+	\item Built an MPTCP kernel module so CPE terminals aggregate 4G+Wi-Fi links --- multipath transmission with link failover in production, plus the userspace manager (kernel IPC, validation, state sync) that made it operable
 \end{itemize}
 \end{onehalfspacing}
 
-\datedsubsection{\textbf{国家电网}, 地级市电网}{2013 年7月 -- 2019年7月}
-\role{信息网络工程师}{OSPF BGP VLAN 防火墙 网络架构}
+\datedsubsection{\textbf{State Grid Corporation of China}}{Jul. 2013 -- Jul. 2019}
+\role{Network Engineer}{OSPF BGP VLAN Firewall}
 \begin{onehalfspacing}
-省级电力通信网络规划与运维
 \begin{itemize}
-	\item 负责 50+ 变电站通信网络架构设计与规划，深入理解 OSPF/BGP 路由协议、VLAN 隔离、防火墙策略等底层网络原理
+	\item Designed and operated communication networks for 50+ substations: OSPF/BGP routing architecture, VLAN isolation, firewall policy, and high-availability design --- six years of running networks where downtime is measured in grid incidents, not SLA percentages
 \end{itemize}
 \end{onehalfspacing}
 
-\section{\faGraduationCap\  教育背景}
-\datedsubsection{\textbf{四川大学}, 四川，成都}{2010 -- 2013}
-\textit{硕士研究生}\ 软件工程
-\datedsubsection{\textbf{四川大学}, 四川, 成都}{2006 -- 2010}
-\textit{学士}\ 软件工程
+\section{\faGraduationCap\ Education}
+\datedsubsection{\textbf{Sichuan University}, Chengdu, China}{2010 -- 2013}
+\textit{M.S.} in Software Engineering
+\datedsubsection{\textbf{Sichuan University}, Chengdu, China}{2006 -- 2010}
+\textit{B.S.} in Software Engineering
 
-\section{\faWrench\ IT 技能}
-% increase linespacing [parsep=0.5ex]
+\section{\faWrench\ Skills}
 \begin{itemize}[parsep=0.5ex]
-  \item C Bash Linux RISC-V DPDK SPDK Ceph gdb vim vscode vibe-coding(Claude Code, Cursor)
-  \item 网络协议栈、驱动开发、分布式存储、内核用户态通讯、体系结构熟悉
-  \item Git 常用操作 
+  \item Networking: TCP/IP (kernel and user-space), BGP/OSPF, TLS and certificate management, DNS, load balancing, multipath/failover, VLESS/WS, DPDK, network observability
+  \item C, Python, TypeScript, Bash; Cloudflare Workers/KV, Xray, QEMU, Ceph, RISC-V; debugging across distributed systems
+  \item AI-augmented development (Claude Code, Cursor): task decomposition, agent-facing docs, AI-output review
 \end{itemize}
 
-\section{\faGlobe\ 其他}
-% increase linespacing [parsep=0.5ex]
+\section{\faGlobe\ Miscellaneous}
 \begin{itemize}[parsep=0.5ex]
-  \item 英语  听说读写熟练(TOEFL 92) CET 6级
+  \item English: full professional proficiency (TOEFL 92, CET-6); async, written-first collaboration across time zones
+  \item Open-source contributor to Linux Kernel and DPDK
 \end{itemize}
 
-%% Reference
-%\newpage
-%\bibliographystyle{IEEETran}
-%\bibliography{mycite}
 \end{document}
