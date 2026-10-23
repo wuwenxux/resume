@@ -3,6 +3,8 @@
 
 \documentclass{resume}
 \usepackage{setspace}
+\titlespacing*{\section}{0cm}{*1.2}{*1.0}
+\titlespacing*{\subsection}{0cm}{*1.3}{*1.0}
 
 \begin{document}
 \pagenumbering{gobble} % suppress displaying page number
@@ -18,13 +20,12 @@
 \begin{itemize}[parsep=0.5ex]
 	\item Networking engineer at every layer: 6 years operating ISP-grade routed networks (OSPF/BGP, VLAN, firewall), then 6+ years building networks in code --- kernel TCP/IP stack, DPDK user-space fast path, NIC drivers, and a custom transport protocol of my own design
 	\item Today I design, deploy, and operate my own global multi-node edge service in production: TLS termination with automated certificates, domain-level traffic steering, node health probing, client-side failover, and edge WAF --- solo, 24/7, on a zero-dollar platform
-	\item I own systems end to end: build, deploy, observe, troubleshoot, document --- and I debug across the whole path from NIC to kernel to application
 \end{itemize}
 
 \section{\faLightbulbO\ Side Project --- my own edge network, in production}
 \datedsubsection{\textbf{FrogLeap} --- token-based network acceleration service}{Aug. 2026 -- Present}
 \role{Solo owner: architecture, network design, review, on-call. Code largely written by AI coding agents under my direction}{Cloudflare Workers KV Xray VLESS TLS DNS Python TypeScript}
-\begin{onehalfspacing}
+\begin{singlespacing}
 \faGlobe\ \href{https://fastergamer.click}{fastergamer.click} ---
 A paid service where users pick from multiple global VPS exit nodes; the control plane lives entirely on Cloudflare's edge.
 \begin{itemize}
@@ -34,65 +35,65 @@ A paid service where users pick from multiple global VPS exit nodes; the control
 	\item \textbf{Edge-native control plane}: token vending, node registry, and traffic settlement in Workers + KV --- event-driven by design (the free tier allows 1k writes/day); authorization changes are pushed to nodes instantly rather than polled
 	\item \textbf{What this trained}: running a real edge network alone --- TLS at scale, failover design, cost/latency trade-offs, incident response with paying users --- with AI agents writing most of the code while I owned design, review, and test discipline
 \end{itemize}
-\end{onehalfspacing}
+\end{singlespacing}
 
 \section{\faBriefcase\ Work Experience}
 \datedsubsection{\textbf{Rivosemi}, Shenzhen}{Jul. 2025 -- Present}
 \role{Low-Level Software Engineer}{RISC-V C DPDK SPDK Ceph QEMU}
-\begin{onehalfspacing}
+\begin{singlespacing}
 \begin{itemize}
-	\item \textbf{Emulated the network before the chip exists}: QEMU full-system platform for a proprietary RISC-V SoC with JSON-driven NIC/storage device models and a fault-injection framework (28 fault types) --- network/storage I/O paths validated months ahead of tape-out, including failure behavior that hardware can't produce on demand
+	\item \textbf{Emulated the network before the chip exists}: QEMU full-system platform for a proprietary RISC-V SoC with JSON-driven NIC/storage device models and a fault-injection framework (28 fault types) --- drivers and network/storage I/O validated months ahead of tape-out
 	\item \textbf{Analyzed RVA23 ISA extensions for SPDK/RDMA network paths} and made Ceph on RISC-V deployable: one-click 3-node clusters ($\sim$8.5k lines of shell) with auto-recovery from 14 failure classes
 \end{itemize}
-\end{onehalfspacing}
+\end{singlespacing}
 
 \datedsubsection{\textbf{Autel Robotics}, Shenzhen}{Feb. 2025 -- Apr. 2025}
 \role{Senior Network Engineer}{ARM64 C OpenSSL GmSSL}
-\begin{onehalfspacing}
+\begin{singlespacing}
 \begin{itemize}
-	\item Landed end-to-end encrypted communication across drone, controller, and base station: evaluated and integrated GmSSL (a national-crypto TLS variant with its own certificate system), and verified the encrypted channel end to end with authored test cases
+	\item Landed end-to-end encrypted communication across drone, controller, and base station: integrated GmSSL (a national-crypto TLS variant with its own certificate system) and verified the channel end to end with authored test cases
 \end{itemize}
-\end{onehalfspacing}
+\end{singlespacing}
 
 \datedsubsection{\textbf{TD Tech}, Chengdu}{Jul. 2023 -- Feb. 2025}
 \role{Senior Network Engineer}{C gdb Kernel TCP/IP HW Offload}
-\begin{onehalfspacing}
+\begin{singlespacing}
 \begin{itemize}
 	\item Owned TCP/IP stack performance for cellular terminals across mips/arm/x86: located kernel data-plane bottlenecks and pushed work onto NIC hardware offload (checksum, segmentation) --- throughput gains without touching application code
 \end{itemize}
-\end{onehalfspacing}
+\end{singlespacing}
 
 \datedsubsection{\textbf{Seawave Technology}, Chengdu}{Jul. 2022 -- Aug. 2023}
 \role{DPDK Protocol Stack Engineer}{C DPDK Transport Protocol Design}
-\begin{onehalfspacing}
+\begin{singlespacing}
 \begin{itemize}
-	\item \textbf{Built my own transport when TCP wasn't an option}: designed and implemented out-of-order reordering, NACK-based retransmission, and multipath forwarding over DPDK for overlay and covert-communication networks; also built the traffic generator used to load-test it --- protocol design, implementation, and measurement in one pair of hands
+	\item \textbf{Built my own transport when TCP wasn't an option}: designed and implemented out-of-order reordering, NACK-based retransmission, and multipath forwarding over DPDK for overlay and covert-communication networks, plus the traffic generator used to load-test it
 \end{itemize}
-\end{onehalfspacing}
+\end{singlespacing}
 
 \datedsubsection{\textbf{Intel}, Chengdu}{Nov. 2021 -- Jul. 2022}
 \role{DPDK Driver Engineer}{C DPDK ixgbe/i40e/ice}
-\begin{onehalfspacing}
+\begin{singlespacing}
 \begin{itemize}
 	\item Maintained DPDK PMD drivers for Intel ixgbe/i40e/ice (12 defects root-caused and fixed); implemented receive-path header split and protocol-aware NIC offload (E810) steering video flows straight into GPU memory --- traffic classification offloaded to the NIC itself
 \end{itemize}
-\end{onehalfspacing}
+\end{singlespacing}
 
 \datedsubsection{\textbf{Baicells Technologies}, Chengdu}{Aug. 2019 -- Nov. 2021}
 \role{Linux Kernel Engineer}{C kernel MPTCP Userspace IPC}
-\begin{onehalfspacing}
+\begin{singlespacing}
 \begin{itemize}
 	\item Built an MPTCP kernel module so CPE terminals aggregate 4G+Wi-Fi links --- multipath transmission with link failover in production, plus the userspace manager (kernel IPC, validation, state sync) that made it operable
 \end{itemize}
-\end{onehalfspacing}
+\end{singlespacing}
 
 \datedsubsection{\textbf{State Grid Corporation of China}}{Jul. 2013 -- Jul. 2019}
 \role{Network Engineer}{OSPF BGP VLAN Firewall}
-\begin{onehalfspacing}
+\begin{singlespacing}
 \begin{itemize}
 	\item Designed and operated communication networks for 50+ substations: OSPF/BGP routing architecture, VLAN isolation, firewall policy, and high-availability design --- six years of running networks where downtime is measured in grid incidents, not SLA percentages
 \end{itemize}
-\end{onehalfspacing}
+\end{singlespacing}
 
 \section{\faGraduationCap\ Education}
 \datedsubsection{\textbf{Sichuan University}, Chengdu, China}{2010 -- 2013}
@@ -103,14 +104,9 @@ A paid service where users pick from multiple global VPS exit nodes; the control
 \section{\faWrench\ Skills}
 \begin{itemize}[parsep=0.5ex]
   \item Networking: TCP/IP (kernel and user-space), BGP/OSPF, TLS and certificate management, DNS, load balancing, multipath/failover, VLESS/WS, DPDK, network observability
-  \item C, Python, TypeScript, Bash; Cloudflare Workers/KV, Xray, QEMU, Ceph, RISC-V; debugging across distributed systems
+  \item C, Python, TypeScript, Bash; Cloudflare Workers/KV, Xray, QEMU, Ceph, RISC-V
   \item AI-augmented development (Claude Code, Cursor): task decomposition, agent-facing docs, AI-output review
-\end{itemize}
-
-\section{\faGlobe\ Miscellaneous}
-\begin{itemize}[parsep=0.5ex]
-  \item English: full professional proficiency (TOEFL 92, CET-6); async, written-first collaboration across time zones
-  \item Open-source contributor to Linux Kernel and DPDK
+  \item English: full professional proficiency (TOEFL 92, CET-6); open-source contributor to Linux Kernel and DPDK
 \end{itemize}
 
 \end{document}
