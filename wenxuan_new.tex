@@ -1,0 +1,106 @@
+% !TEX program = xelatex
+% Tailored for: Supabase Platform Engineer, Edge & Networking
+%
+% TODO markers (search "TODO") = places where a real number or link from you
+% would strengthen the resume. Delete the comment once filled in.
+
+\documentclass{resume}
+\usepackage{setspace}
+\titlespacing*{\section}{0cm}{*1.2}{*1.0}
+\titlespacing*{\subsection}{0cm}{*1.3}{*1.0}
+
+\begin{document}
+\pagenumbering{gobble} % suppress displaying page number
+
+\name{Wenxuan Wu}
+
+\basicInfo{
+  \email{wwx0306@foxmail.com} \textperiodcentered\
+  \phone{(+86) 191-159-46187} \textperiodcentered\
+  \github[Wenxuan Wu]{https://github.com/wuwenxux}}
+
+\section{\faRocket\ Profile}
+\begin{itemize}[parsep=0.5ex]
+	\item Networking engineer at every layer: 6 years operating routed networks for 50+ substations (OSPF/BGP, VLAN, firewall, HA), then 6+ years building networks in code --- kernel TCP/IP stack, DPDK user-space fast path, NIC drivers, and a custom transport protocol of my own design
+	\item Today I design, deploy, and operate my own multi-provider, multi-node edge service in production: TLS termination with automated certificates, domain-level traffic steering, node health probing, and client-side failover --- solo, 24/7, with a control plane running entirely within Cloudflare's free tier
+\end{itemize}
+
+\section{\faLightbulbO\ Side Project --- my own edge network, in production}
+\datedsubsection{\textbf{FrogLeap} --- token-based network acceleration service}{Aug. 2026 -- Present}
+\role{Solo owner: architecture, network design, review, on-call. Code largely written by AI coding agents under my direction}{Cloudflare Workers KV Xray VLESS TLS DNS Python TypeScript}
+\begin{singlespacing}
+\faGlobe\ \href{https://fastergamer.click}{fastergamer.click} ---
+An early-stage paid service (under 100 customers) where users pick from 16 VPS exit nodes rented from multiple providers across Hong Kong, Singapore, Japan, and the US; the control plane lives entirely on Cloudflare's edge.
+\begin{itemize}
+	\item \textbf{Traffic steering as a product}: routing policy is shipped through the subscription itself --- per-exit node groups and domain-based pinning of specific services to the exits that serve them best, delivered in three client formats (Clash/v2ray/sing-box) with UA-based auto-detection; offline nodes are pruned from the subscription automatically and clients fail over via per-region url-test groups
+	% TODO: add a measured recovery time (client url-test interval decides it): stop Xray on one node, time until traffic recovers
+	\item \textbf{TLS and DNS operations}: every node terminates VLESS+WS+TLS on its own \texttt{*.fastergamer.click} name with automated certificate issuance (Caddy/Nginx fronting Xray); I manage DNS, basic edge WAF rules, and the 301 migration that moved an entire user base from the old domain without breaking live subscriptions
+	\item \textbf{Observability and health}: per-device traffic accounting on every node, health probing of every exit every 5 minutes from a dedicated mainland VPS (independent of Worker cron and KV quota, written back only on state changes) with email alerts on repeated failures --- covering blocked IPs, expired certificates, and crashed services, and a real-time concurrency signal per credential that doubles as abuse detection
+	\item \textbf{Edge-native control plane}: token vending, node registry, and traffic settlement in Workers + KV --- event-driven by design (the free tier allows 1k writes/day); authorization changes are pushed to nodes instantly rather than polled, and if the control plane goes down, nodes keep serving on the last known authorization list and report buffered traffic after recovery
+	\item \textbf{Operating discipline}: failover design, cost/latency trade-offs, and incident response with paying users; AI agents wrote most of the code while I owned design, review, and tests
+\end{itemize}
+\end{singlespacing}
+
+\section{\faBriefcase\ Work Experience}
+\datedsubsection{\textbf{RiVAI Technologies}, Shenzhen}{Jul. 2025 -- Present}
+\role{Low-Level Software Engineer}{RISC-V C DPDK SPDK Ceph QEMU}
+\begin{singlespacing}
+\begin{itemize}
+	\item \textbf{Emulated the network before the chip exists}: QEMU full-system platform for a proprietary RISC-V SoC with JSON-driven NIC/storage device models and a fault-injection framework (28 fault types) --- drivers and network/storage I/O validated months ahead of tape-out
+	\item \textbf{Analyzed RVA23 ISA extensions for SPDK/RDMA network paths} and made Ceph on RISC-V deployable: one-click 3-node clusters ($\sim$8.5k lines of shell) with auto-recovery from 14 failure classes
+\end{itemize}
+\end{singlespacing}
+
+\datedsubsection{\textbf{Autel Robotics}, Shenzhen}{Feb. 2025 -- Apr. 2025}
+\role{Senior Network Engineer}{ARM64 C OpenSSL GmSSL}
+\begin{singlespacing}
+\begin{itemize}
+	\item Landed end-to-end encrypted communication across drone, controller, and base station: integrated GmSSL (a national-crypto TLS variant with its own certificate system) and verified the channel end to end with authored test cases
+\end{itemize}
+\end{singlespacing}
+
+\datedsubsection{\textbf{Network Stack Engineer} --- DPDK transport protocol, kernel TCP/IP offload}{Jul. 2022 -- Feb. 2025}
+\role{TD Tech and Seanet, Chengdu}{C DPDK Kernel TCP/IP HW Offload gdb}
+\begin{singlespacing}
+\begin{itemize}
+	\item \textbf{TD Tech} (Aug. 2023 -- Feb. 2025, Senior Network Engineer): owned TCP/IP stack performance for cellular terminals across MIPS/ARM/x86 --- located kernel data-plane bottlenecks and pushed work onto NIC hardware offload (checksum, segmentation), with throughput gains and no application changes
+	% TODO: replace "throughput gains" with a number, e.g. "+X\% throughput" or "X -> Y Mbps"
+	\item \textbf{Seanet} (Jul. 2022 -- Jul. 2023, DPDK Protocol Stack Engineer): built my own transport when TCP wasn't an option --- out-of-order reordering, NACK-based retransmission, and multipath forwarding over DPDK for overlay networks, plus the traffic generator used to load-test it
+	% TODO: add a measured result, e.g. throughput, tolerated loss rate, or comparison with TCP
+\end{itemize}
+\end{singlespacing}
+
+\datedsubsection{\textbf{Kernel and Driver Engineer} --- MPTCP, DPDK PMD drivers, NIC offload}{Aug. 2019 -- Jul. 2022}
+\role{Intel and Baicells Technologies, Chengdu}{C Linux Kernel MPTCP DPDK ixgbe/i40e/ice}
+\begin{singlespacing}
+\begin{itemize}
+	\item \textbf{Intel} (Nov. 2021 -- Jul. 2022, DPDK Driver Engineer): maintained DPDK PMD drivers for ixgbe/i40e/ice (12 defects root-caused and fixed); implemented receive-path header split and protocol-aware NIC offload (E810) steering video flows straight into GPU memory
+	\item \textbf{Baicells Technologies} (Aug. 2019 -- Nov. 2021, Linux Kernel Engineer): built an MPTCP kernel module so CPE terminals aggregate 4G+Wi-Fi links, with link failover in production, plus the userspace manager (kernel IPC, validation, state sync) that made it operable
+	% TODO: add a number, e.g. aggregated bandwidth gain or link-switch time
+\end{itemize}
+\end{singlespacing}
+
+\datedsubsection{\textbf{State Grid Corporation of China}}{Jul. 2013 -- Jul. 2019}
+\role{Network Engineer}{OSPF BGP VLAN Firewall}
+\begin{singlespacing}
+\begin{itemize}
+	\item Designed and operated communication networks for 50+ substations: OSPF/BGP routing architecture, VLAN isolation, firewall policy, and high-availability design --- six years of running networks where downtime is measured in grid incidents, not SLA percentages
+\end{itemize}
+\end{singlespacing}
+
+\section{\faGraduationCap\ Education}
+\datedsubsection{\textbf{Sichuan University}, Chengdu, China}{2010 -- 2013}
+\textit{M.S.} in Software Engineering
+\datedsubsection{\textbf{Sichuan University}, Chengdu, China}{2006 -- 2010}
+\textit{B.S.} in Software Engineering
+
+\section{\faWrench\ Skills}
+\begin{itemize}[parsep=0.5ex]
+  \item Networking: TCP/IP (kernel and user-space), BGP/OSPF, TLS and certificate management, DNS, load balancing, multipath/failover (MPTCP), VLESS/WS, DPDK, NIC offload, network observability
+  \item C, Python, TypeScript, Bash; Linux kernel, Caddy/Nginx, Cloudflare Workers/KV, Xray, QEMU, Ceph, RISC-V
+  \item AI-augmented development (Claude Code, Cursor): task decomposition, agent-facing docs, AI-output review
+  \item English: full professional proficiency (TOEFL 92, CET-6); open-source contributor to Linux Kernel and DPDK
+  % TODO: add counts or links for the open-source work, e.g. "N patches merged"
+\end{itemize}
+
+\end{document}
